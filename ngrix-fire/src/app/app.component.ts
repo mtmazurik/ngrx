@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+interface AppState {    // in the interface called AppState
+  message: string;      // define a simple message, a string
+}
 
 @Component({
   selector: 'app-root',
@@ -6,5 +12,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ngrix-fire';
+  title = 'ngrx-fire';          
+  message$: Observable<string>    // property convention:   dollar-sign for Observable 
+
+                // ctor
+  constructor(private store: Store<AppState>) {   // inject defined AppState into our store
+    this.message$ = this.store.select('message')  // link store : message to our Observable $message
+  }
+
+  spanishMessage() {
+    this.store.dispatch({type: 'SPANISH'})  // literal arg passed in
+  }
+  frenchMessage() {
+    this.store.dispatch({type: 'FRENCH'}) 
+  }
 }
