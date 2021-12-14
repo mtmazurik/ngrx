@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { simpleReducer } from './simple.reducer';
+import { salutationReducer } from './salutationReducer';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { simpleReducer } from './simple.reducer';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ message: simpleReducer })
+    StoreModule.forRoot({ salutation: salutationReducer })  // store one, or more,  In general, you register root states that always need to be available to all areas of your application immediately
   ],
   providers: [],
   bootstrap: [AppComponent]

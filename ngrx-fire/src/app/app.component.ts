@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 interface AppState {    // in the interface called AppState
-  message: string;      // define a simple message, a string
+  salutation: string;      // define a simple message, a string
 }
 
 @Component({
@@ -17,7 +17,7 @@ export class AppComponent {
 
                 // ctor
   constructor(private store: Store<AppState>) {   // inject defined AppState into our store
-    this.message$ = this.store.select('message')  // link store : message to our Observable $message
+    this.message$ = this.store.select('salutation')  // link store : message to our Observable $message
   }
 
   spanishMessage() {

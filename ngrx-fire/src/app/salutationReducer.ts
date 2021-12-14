@@ -1,6 +1,8 @@
 import { Action } from '@ngrx/store';
+import { languageChangeAction } from './languageChangeAction';
 
-export function simpleReducer(state: string = 'Hello World', action: Action) {
+export function salutationReducer(state: string = 'Hello World', action: Action) {
+  
   console.log(action.type, state)
 
   switch (action.type) {
